@@ -1,0 +1,31 @@
+
+### Create Employee
+POST http://localhost:8080/employees
+Authorization: Basic YWRtaW46YWRtaW4=   # base64(admin:admin)
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "position": "Developer",
+  "details": ["{\"salary\": 95000, \"contractType\": \"contract\", \"year\": \"2023\"}"]
+}
+
+### Create another Employee
+POST http://localhost:8080/employees
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "position": "QA Engineer",
+  "details": ["{\"salary\": 95000, \"contractType\": \"contract\", \"year\": \"2023\"}"]
+}
+
+### Get All Employees
+GET http://localhost:8080/employees
+Authorization: Basic dXNlcjp1c2Vy   # base64(user:user)
+
+### Download Excel Report
+GET http://localhost:8080/employees/excel
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
